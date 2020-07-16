@@ -76,7 +76,7 @@ export default {
     };
   },
   methods: {
-      login() {
+    login() {
       axios
         .post(
           `http://localhost:3000/authenticate/email=${this.email}&password=${this.password}`
@@ -84,6 +84,21 @@ export default {
         .then(response => {
           console.log(response);
           if (response.data.status == true && response.data.token) {
+            this.$router.push("/profile");
+          }
+        })
+        .catch(error => {
+          alert(error);
+        });
+    },
+    register() {
+      axios
+        .post(
+          `http://localhost:3000/register/email=${this.email}&password=${this.password}`
+        )
+        .then(response => {
+          console.log(response);
+          if (response.data.status == true) {
             this.$router.push("/profile");
           }
         })
