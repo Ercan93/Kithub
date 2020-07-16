@@ -21,9 +21,18 @@
               <v-card-text>
                 <v-form ref="form" v-model="valid">
                   <v-text-field
+                    label="username"
+                    name="username"
+                    prepend-icon="mdi-account"
+                    type="text"
+                    required
+                    v-model="username"
+                    v-show="registerPage"
+                  ></v-text-field>
+                  <v-text-field
                     label="E-mail"
                     name="login"
-                    prepend-icon="mdi-account"
+                    prepend-icon="mdi-mail"
                     type="email"
                     :rules="emailRules"
                     required
@@ -42,8 +51,14 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn class="pa-5" color="success" dark @click="login" v-if="registerPage">Sign up</v-btn>
-                <v-btn class="pa-5" color="primary" dark @click="register" v-else>Log in</v-btn>
+                <v-btn
+                  class="pa-5"
+                  color="success"
+                  dark
+                  @click="register"
+                  v-if="registerPage"
+                >Sign up</v-btn>
+                <v-btn class="pa-5" color="primary" dark @click="login" v-else>Log in</v-btn>
               </v-card-actions>
             </v-card>
           </v-col>
@@ -67,6 +82,7 @@ export default {
     return {
       email: "",
       password: "",
+      username: "",
       registerPage: false,
       emailRules: [
         v => !!v || "E-mail is required",
@@ -94,11 +110,11 @@ export default {
     register() {
       axios
         .post(
-          `http://localhost:3000/register/email=${this.email}&password=${this.password}`
+          `http://localhost:3000/register/username=${this.username}&email=${this.email}&password=${this.password}`
         )
         .then(response => {
           console.log(response);
-          if (response.data.status == true) {
+          if (response.data.password) {
             this.$router.push("/profile");
           }
         })
