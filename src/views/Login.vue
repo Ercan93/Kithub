@@ -76,6 +76,21 @@ export default {
     };
   },
   methods: {
+      login() {
+      axios
+        .post(
+          `http://localhost:3000/authenticate/email=${this.email}&password=${this.password}`
+        )
+        .then(response => {
+          console.log(response);
+          if (response.data.status == true && response.data.token) {
+            this.$router.push("/profile");
+          }
+        })
+        .catch(error => {
+          alert(error);
+        });
+    },
     goSignUp() {
       this.registerPage = true;
     },
