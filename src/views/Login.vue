@@ -97,6 +97,13 @@ export default {
       successRegister: false
     };
   },
+  created() {
+    let localToken = localStorage.getItem("kithub-api-user-token");
+    let localUsername = localStorage.getItem("kithub-api-user-username");
+    if (localToken && localUsername) {
+      this.$router.push("/profile");
+    }
+  },
   methods: {
     login() {
       axios
