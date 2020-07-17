@@ -8,17 +8,17 @@ export default {
   name: "UserProfile",
   data() {
     return {
-      username: null,
+      email: null,
       token: null
     };
   },
   created() {
     let localToken = localStorage.getItem("kithub-api-user-token");
-    let localUsername = localStorage.getItem("kithub-api-user-username");
+    let localEmail = localStorage.getItem("kithub-api-user-email");
     if (!localToken) {
       this.$router.push("/");
     } else {
-      this.username = localUsername;
+      this.email = localEmail;
       this.token = localToken;
     }
   }

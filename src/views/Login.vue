@@ -156,8 +156,8 @@ export default {
         this.$store.state.userInfo.token
       );
       localStorage.setItem(
-        "kithub-api-user-username",
-        this.$store.state.userInfo.username
+        "kithub-api-user-email",
+        this.$store.state.userInfo.email
       );
     }
   }
