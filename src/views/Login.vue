@@ -1,21 +1,21 @@
 <template>
   <v-app>
     <v-main>
-      <v-container class="fill-height" fluid>
+      <v-container class="fill-height container white--text" fluid>
         <v-row class="header" align="center" justify="center">
           <h1>Kithub API Service</h1>
         </v-row>
         <v-row align="center" justify="center">
           <v-col cols="12" sm="8" md="4">
             <v-card class="elevation-12">
-              <v-toolbar color="success" v-if="registerPage" dark flat>
+              <v-toolbar class="register" v-if="registerPage" dark flat>
                 <v-spacer></v-spacer>
                 <v-toolbar-title>Register</v-toolbar-title>
                 <v-spacer></v-spacer>
               </v-toolbar>
-              <v-toolbar color="primary" v-else dark flat>
+              <v-toolbar color="login" dark v-else flat>
                 <v-spacer></v-spacer>
-                <v-toolbar-title>Login</v-toolbar-title>
+                <v-toolbar-title class="title">Login</v-toolbar-title>
                 <v-spacer></v-spacer>
               </v-toolbar>
               <v-card-text>
@@ -51,25 +51,24 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn
-                  class="pa-5"
-                  color="success"
-                  dark
-                  @click="register"
-                  v-if="registerPage"
-                >Sign up</v-btn>
-                <v-btn class="pa-5" color="primary" dark @click="login" v-else>Log in</v-btn>
+                <v-btn class="pa-5 register" dark @click="register" v-if="registerPage">Sign up</v-btn>
+                <v-btn class="pa-5 login" dark @click="login" v-else>Log in</v-btn>
               </v-card-actions>
             </v-card>
+            <v-row
+              class="flex flex-column mt-15"
+              align="center"
+              justify="center"
+              v-if="registerPage"
+            >
+              <span>Have an account?</span>
+              <v-btn class="pa-5 mt-4 login" @click="goLogin" dark>Log in</v-btn>
+            </v-row>
+            <v-row class="flex flex-column mt-15" align="center" justify="center" v-else>
+              <span>Don't have an account?</span>
+              <v-btn class="pa-5 mt-4 register" @click="goSignUp" dark>Sign up for Kithub</v-btn>
+            </v-row>
           </v-col>
-        </v-row>
-        <v-row class="flex flex-column" align="center" justify="center" v-if="registerPage">
-          <span>Have an account?</span>
-          <v-btn class="pa-5 mt-4" color="primary" @click="goLogin" dark>Log in</v-btn>
-        </v-row>
-        <v-row class="flex flex-column" align="center" justify="center" v-else>
-          <span>Don't have an account?</span>
-          <v-btn class="pa-5 mt-4" color="success" @click="goSignUp" dark>Sign up for Kithub</v-btn>
         </v-row>
       </v-container>
     </v-main>
@@ -132,9 +131,23 @@ export default {
 };
 </script>
 <style lang="sass" scoped>
-.header
-    padding-bottom: 20px
-    border-bottom: solid 1px darkgrey
+.container
+    background: #673AB7
+    background: -webkit-linear-gradient(to right, #512DA8, #673AB7)
+    background: linear-gradient(to right, #512DA8, #673AB7)
+    .header
+        font-size: 24px
+    .login
+        background: #2980b9
+        background: -webkit-linear-gradient(to right, #2980b9, #2960b9)
+        background: linear-gradient(to right, #2980b9, #2960b9)
+    .register
+        background: #24BE41
+        background: -webkit-linear-gradient(to right, #24BE41, #24CE21)
+        background: linear-gradient(to right, #24BE41, #24CE21)
+
+
+
 
 
 </style>
