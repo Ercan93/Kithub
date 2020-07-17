@@ -7,6 +7,12 @@
         </v-row>
         <v-row align="center" justify="center">
           <v-col cols="12" sm="8" md="4">
+            <v-alert
+              dense
+              type="success"
+              dismissible
+              v-show="successRegister"
+            >Your membership has been successfully created. Log in now.</v-alert>
             <v-card class="elevation-12">
               <v-toolbar class="register" v-if="registerPage" dark flat>
                 <v-spacer></v-spacer>
@@ -87,7 +93,8 @@ export default {
         v => !!v || "E-mail is required",
         v => /.+@.+/.test(v) || "E-mail must be valid"
       ],
-      valid: true
+      valid: true,
+      successRegister: false
     };
   },
   methods: {
@@ -114,7 +121,14 @@ export default {
         .then(response => {
           console.log(response);
           if (response.data.password) {
-            this.$router.push("/profile");
+            this.$store.dispatch("setUserInfo", {
+              username: this.username,
+              email: this.email,
+              password: response.data.password,
+              token: null
+            });
+            this.registerPage = false;
+            this.successRegister = true;
           }
         })
         .catch(error => {
