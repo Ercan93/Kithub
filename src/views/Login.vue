@@ -106,6 +106,8 @@ export default {
         .then(response => {
           console.log(response);
           if (response.data.status == true && response.data.token) {
+            this.$store.state.userInfo.token = response.data.token;
+            this.saveUserInfo();
             this.$router.push("/profile");
           }
         })
@@ -140,6 +142,16 @@ export default {
     },
     goLogin() {
       this.registerPage = false;
+    },
+    saveUserInfo() {
+      localStorage.setItem(
+        "kithub-api-user-token",
+        this.$store.state.userInfo.token
+      );
+      localStorage.setItem(
+        "kithub-api-user-username",
+        this.$store.state.userInfo.username
+      );
     }
   }
 };
