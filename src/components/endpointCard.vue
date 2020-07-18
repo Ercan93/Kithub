@@ -1,12 +1,23 @@
 <template>
   <v-container class="d-flex flex-column white--text" fluid>
-    <div class="pt-16 mb-16" v-for="endpoint in bookApiInfo">
+    <div class="mb-16" v-for="endpoint in bookApiInfo">
       <h2>
         <a :href="`#${endpoint.title}`">{{endpoint.title}}</a>
       </h2>
-
       <p>{{endpoint.description}}</p>
       <p class="code">{{endpoint.code}}</p>
+      <v-alert
+        class="mt-8"
+        dense
+        border="left"
+        type="info"
+        color="#DD5919"
+        v-if="endpoint.alert== 'bookName' "
+      >
+        If the book title consists of
+        <strong>more</strong> than one word, separate the words with
+        <strong>_</strong> .
+      </v-alert>
       <h3 class="mt-16 mb-4">
         <i>Example Query</i>
       </h3>

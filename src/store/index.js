@@ -15,6 +15,7 @@ export default new Vuex.Store({
         description: "Get book data with book name.",
         code: "http://localhost:3030/api/books/{{Book_Name}}",
         exampleQuery: "http://localhost:3000/api/books/Otomatik_Portakal",
+        alert: "bookName",
         exampleResult: `[
     {
         "properties": {
