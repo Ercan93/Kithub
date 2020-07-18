@@ -6,9 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     userInfo: {
-      username: null,
       email: null,
-      password: null,
       token: null,
     },
   },

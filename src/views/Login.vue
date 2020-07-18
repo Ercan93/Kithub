@@ -114,7 +114,9 @@ export default {
           console.log(response);
           if (response.data.status == true && response.data.token) {
             this.$store.state.userInfo.token = response.data.token;
-            this.saveUserInfo();
+            this.$store.state.userInfo.email = this.email;
+            localStorage.setItem("kithub-api-user-token", response.data.token);
+            localStorage.setItem("kithub-api-user-email", this.email);
             this.$router.push("/profile");
           }
         })
@@ -131,9 +133,7 @@ export default {
           console.log(response);
           if (response.data.password) {
             this.$store.dispatch("setUserInfo", {
-              username: this.username,
               email: this.email,
-              password: response.data.password,
               token: null
             });
             this.registerPage = false;
@@ -149,16 +149,6 @@ export default {
     },
     goLogin() {
       this.registerPage = false;
-    },
-    saveUserInfo() {
-      localStorage.setItem(
-        "kithub-api-user-token",
-        this.$store.state.userInfo.token
-      );
-      localStorage.setItem(
-        "kithub-api-user-email",
-        this.$store.state.userInfo.email
-      );
     }
   }
 };
