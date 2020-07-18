@@ -3,7 +3,7 @@
     <v-app-bar class="app-bar" app>
       <h1 class="brand-name">Kithub</h1>
       <span class="ml-auto orange--text" color="#F09819">{{email}}</span>
-      <a>
+      <a @click="logOut()">
         <v-icon class="ml-5" color="#F09819">mdi-exit-run</v-icon>
       </a>
     </v-app-bar>
@@ -39,10 +39,18 @@ export default {
       token: null
     };
   },
+  methods: {
+    logOut() {
+      localStorage.removeItem("kithub-api-user-email");
+      localStorage.removeItem("kithub-api-user-email");
+      this.$store.state.userInfo = { email: null, token: null };
+      this.$router.push("/login");
+    }
+  },
   created() {
     let localToken = localStorage.getItem("kithub-api-user-token");
     let localEmail = localStorage.getItem("kithub-api-user-email");
-    if (!localToken) {
+    if (!localToken && !localEmail) {
       this.$router.push("/");
     } else {
       this.$store.state.userInfo.email = localEmail;
@@ -54,25 +62,25 @@ export default {
 };
 </script>
 <style lang="sass" scoped>
+$kithub-dark:#16222A
+$kithub-blue:#3A6073
+$kithub-orange: #F09819
+$kithub-purple: #480048
 
 .app-bar
-    background: #16222A
-    background: -webkit-linear-gradient(to right, #3A6073, #16222A)
-    background: linear-gradient(to right, #3A6073, #16222A)
+    background: $kithub-dark
+    background: -webkit-linear-gradient(to right, $kithub-blue, $kithub-dark)
+    background: linear-gradient(to right, $kithub-blue, $kithub-dark)
 
-.navigation
-    background: #3A6073
-    background: -webkit-linear-gradient(to top, #16222A, #3A6073)
-    background: linear-gradient(to top, #16222A, #3A6073)
-.main
-    background: #3A6073
-    background: -webkit-linear-gradient(to top, #16222A, #3A6073)
-    background: linear-gradient(to top, #16222A, #3A6073)
+.main,.navigation
+    background: $kithub-blue
+    background: -webkit-linear-gradient(to top, $kithub-dark, $kithub-blue)
+    background: linear-gradient(to top, $kithub-dark, $kithub-blue)
 
 .footer
-    background: #F09819
-    background: -webkit-linear-gradient(to right, #480048, #F09819)
-    background: linear-gradient(to right, #480048, #F09819)
+    background: $kithub-orange
+    background: -webkit-linear-gradient(to right, $kithub-purple, $kithub-orange)
+    background: linear-gradient(to right, $kithub-purple, $kithub-orange)
 .brand-name
-    color: #F09819
+    color: $kithub-orange
 </style>
