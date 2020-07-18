@@ -8,9 +8,9 @@
       </a>
     </v-app-bar>
 
-    <app-main></app-main>
-    <app-navigation></app-navigation>
-    <app-footer></app-footer>
+    <app-navigation app></app-navigation>
+    <app-main app></app-main>
+    <app-footer app></app-footer>
   </v-app>
 </template>
 <script>

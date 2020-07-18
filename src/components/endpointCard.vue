@@ -1,5 +1,5 @@
 <template>
-  <v-container class="d-flex flex-column white--text" fluid>
+  <v-container class="d-flex flex-column pa-16 white--text" fluid>
     <div class="mb-16" v-for="endpoint in bookApiInfo">
       <h2>
         <a :href="`#${endpoint.title}`">{{endpoint.title}}</a>
