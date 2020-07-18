@@ -1,9 +1,14 @@
 <template>
-  <v-main class="main">
-    <v-container fluid></v-container>
+  <v-main class="main pr-16 ml-16">
+    <endpoint-card></endpoint-card>
   </v-main>
 </template>
-
+<script>
+import endpointCard from "./endpointCard";
+export default {
+  components: { endpointCard }
+};
+</script>
 
 <style lang="sass" scoped>
 .main
