@@ -2,37 +2,25 @@
   <v-app>
     <v-app-bar class="app-bar" app>
       <h1 class="brand-name">Kithub</h1>
-      <span class="ml-auto orange--text" color="#F09819">{{email}}</span>
+      <span class="ml-auto white--text">{{email}}</span>
       <a @click="logOut()">
         <v-icon class="ml-5" color="#F09819">mdi-exit-run</v-icon>
       </a>
     </v-app-bar>
 
-    <v-navigation-drawer class="navigation" app></v-navigation-drawer>
-
-    <v-main class="main">
-      <v-container fluid></v-container>
-    </v-main>
-
-    <v-footer class="footer justify-center white--text mb-0" app>
-      <a href="https://github.com/Ercan93" target="_blank">
-        <v-icon color="grey">mdi-github</v-icon>
-      </a>
-
-      <p class="mb-0 ml-auto">
-        <v-icon>mdi-vuejs</v-icon>
-        <v-icon>mdi-webpack</v-icon>
-        <v-icon>mdi-language-javascript</v-icon>
-        <v-icon>mdi-api</v-icon>
-        <v-icon>mdi-sass</v-icon>
-        <v-icon>mdi-stack-overflow</v-icon>
-      </p>
-    </v-footer>
+    <app-main></app-main>
+    <app-navigation></app-navigation>
+    <app-footer></app-footer>
   </v-app>
 </template>
 <script>
+import appNavigation from "@/components/appNavigation";
+import appFooter from "@/components/appFooter";
+import appMain from "@/components/appMain";
+
 export default {
   name: "UserProfile",
+  components: { appNavigation, appFooter, appMain },
   data() {
     return {
       email: null,
@@ -62,25 +50,12 @@ export default {
 };
 </script>
 <style lang="sass" scoped>
-$kithub-dark:#16222A
-$kithub-blue:#3A6073
-$kithub-orange: #F09819
-$kithub-purple: #480048
-
 .app-bar
-    background: $kithub-dark
-    background: -webkit-linear-gradient(to right, $kithub-blue, $kithub-dark)
-    background: linear-gradient(to right, $kithub-blue, $kithub-dark)
+    background: #16222A
+    background: -webkit-linear-gradient(to right, #3A6073, #16222A)
+    background: linear-gradient(to right, #3A6073, #16222A)
+    
+    .brand-name
+        color: #F09819
 
-.main,.navigation
-    background: $kithub-blue
-    background: -webkit-linear-gradient(to top, $kithub-dark, $kithub-blue)
-    background: linear-gradient(to top, $kithub-dark, $kithub-blue)
-
-.footer
-    background: $kithub-orange
-    background: -webkit-linear-gradient(to right, $kithub-purple, $kithub-orange)
-    background: linear-gradient(to right, $kithub-purple, $kithub-orange)
-.brand-name
-    color: $kithub-orange
 </style>
