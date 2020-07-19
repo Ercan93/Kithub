@@ -7,8 +7,13 @@
 <script>
 export default {
   name: "App",
+
   data: () => ({
     //
   })
 };
 </script>
+<style lang="sass">
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@300;400;500;600;700&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap')
+</style>
