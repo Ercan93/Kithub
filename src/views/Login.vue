@@ -77,12 +77,15 @@
           </v-col>
         </v-row>
       </v-container>
+      <app-footer></app-footer>
     </v-main>
   </v-app>
 </template>
 <script>
+import appFooter from "@/components/appFooter";
 export default {
   name: "LoginPage",
+  components: { appFooter },
   data() {
     return {
       email: "",
@@ -155,9 +158,10 @@ export default {
 </script>
 <style lang="sass" scoped>
 .container
-    background: #673AB7
-    background: -webkit-linear-gradient(to right, #512DA8, #673AB7)
-    background: linear-gradient(to right, #512DA8, #673AB7)
+    font-family: 'Signika', sans-serif
+    background: #F09819 
+    background: -webkit-linear-gradient(to right, #F09819, #F09819)
+    background: linear-gradient(to right, #F09819, #F09819)
     .header
         font-size: 24px
     .login

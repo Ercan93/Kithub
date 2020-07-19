@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app class="profile">
     <v-app-bar class="app-bar" app>
       <h1 class="brand-name">Kithub</h1>
       <span class="ml-auto white--text">{{email}}</span>
@@ -51,10 +51,12 @@ export default {
 };
 </script>
 <style lang="sass" scoped>
-.app-bar
-    background: #16222A
-    background: -webkit-linear-gradient(to right, #3A6073, #16222A)
-    background: linear-gradient(to right, #3A6073, #16222A)
+.profile
+    font-family: 'Signika', sans-serif
+    .app-bar
+        background: #16222A
+        background: -webkit-linear-gradient(to right, #3A6073, #16222A)
+        background: linear-gradient(to right, #3A6073, #16222A)
     
     .brand-name
         color: #F09819

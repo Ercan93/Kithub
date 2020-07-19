@@ -11,7 +11,7 @@
         dense
         border="left"
         type="info"
-        color="#DD5919"
+        color="#DE5919"
         v-if="endpoint.alert"
       >{{endpoint.alert}}</v-alert>
       <v-alert
@@ -63,15 +63,17 @@ export default {
 </script>
 <style lang="sass" scoped>
 .code
+    font-family: 'Fira Code', monospace
+    font-weight: 500
     font-size: 20px
     padding: 20px 10px
     letter-spacing: 1px
     line-height: 20px
     border-radius: 10px
     width: auto
-    background: #F09819
-    background: -webkit-linear-gradient(to right, #480048, #F09819)
-    background: linear-gradient(to right, #480048, #F09819)
+    background: #480048
+    background: -webkit-linear-gradient(to right, #480048, #480048)
+    background: linear-gradient(to right, #480048, #480048)
     .result
         line-height: 28px
 a
