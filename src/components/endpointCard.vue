@@ -1,38 +1,60 @@
 <template>
   <v-container class="d-flex flex-column pa-16 white--text" fluid>
-    <div class="mb-16" v-for="endpoint in bookApiInfo">
-      <h2>
+    <div class="mb-16 mt-6 pb-16" v-for="endpoint in bookApiInfo">
+      <h1>
         <a :href="`#${endpoint.title}`">{{endpoint.title}}</a>
-      </h2>
+      </h1>
       <p>{{endpoint.description}}</p>
       <p class="code">{{endpoint.code}}</p>
       <v-alert
-        class="mt-8"
+        class="mt-6"
         dense
         border="left"
         type="info"
         color="#DD5919"
-        v-if="endpoint.alert== 'bookName' "
+        v-if="endpoint.alert"
+      >{{endpoint.alert}}</v-alert>
+      <v-alert
+        class="mt-6"
+        dense
+        border="left"
+        type="info"
+        color="#DD3919"
+        v-if="endpoint.alert2"
+      >{{endpoint.alert2}}</v-alert>
+      <v-alert
+        border="left"
+        type="info"
+        icon="mdi-content-save-alert"
+        prominent
+        class="pa-5 mt-6 d-flex justify-start"
+        v-if="endpoint.paramsDescription"
       >
-        If the book title consists of
-        <strong>more</strong> than one word, separate the words with
-        <strong>_</strong> .
+        <div class="d-flex align-center" v-for="param in endpoint.paramsDescription">
+          <strong>
+            <h2>{{param.paramTitle}} :</h2>
+          </strong>
+          <h4 class="pl-6" v-for="value in param.values">{{value}}</h4>
+        </div>
       </v-alert>
-      <h3 class="mt-16 mb-4">
+      <h3 class="mt-8 mb-4">
         <i>Example Query</i>
       </h3>
       <p class="code">{{endpoint.exampleQuery}}</p>
+      <!--
       <h3 class="mt-6">
         <i>Example Result</i>
       </h3>
-      <div class="mt-2 result pa-10">{{endpoint.exampleResult}}</div>
+      -->
     </div>
   </v-container>
 </template>
 <script>
 export default {
   data() {
-    return { bookApiInfo: null };
+    return {
+      bookApiInfo: null
+    };
   },
   created() {
     this.bookApiInfo = this.$store.state.bookApiInfo;
@@ -58,4 +80,5 @@ a
 .result
     background-color: #480048
     border-radius: 10px
+
 </style>
