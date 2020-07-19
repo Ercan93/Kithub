@@ -7,8 +7,9 @@
         <v-icon class="ml-5" color="#F09819">mdi-exit-run</v-icon>
       </a>
     </v-app-bar>
-
+    <!--
     <app-navigation app></app-navigation>
+    -->
     <app-main app></app-main>
     <app-footer app></app-footer>
   </v-app>
