@@ -52,9 +52,9 @@ export default new Vuex.Store({
         title: "SortCategoriesBooks",
         description: "GET sorted books by parameter.",
         code:
-          "https://kithub-books.herokuapp.com/api/categories/{{categories_name}}/{{sort_param}}={{orderBy}}",
+          "https://kithub-books.herokuapp.com/api/categories/{{categories_name}}/sort/{{sort_param}}={{orderBy}}",
         exampleQuery:
-          "https://kithub-books.herokuapp.com/api/categories/Roman&Fantastik/readCount=asc",
+          "https://kithub-books.herokuapp.com/api/categories/Roman&Fantastik/sort/readCount=asc",
         alert:
           "If the category name consists of more than one word, separate the words with _.",
         alert2:
@@ -80,9 +80,9 @@ export default new Vuex.Store({
         title: "SortAuthorsBook",
         description: "GET sorted author's book by parameter.",
         code:
-          "https://kithub-books.herokuapp.com/api/author/{{Author_Name}}/{{sort_param}}={{orderBy}}",
+          "https://kithub-books.herokuapp.com/api/author/{{Author_Name}}/sort/{{sort_param}}={{orderBy}}",
         exampleQuery:
-          "https://kithub-books.herokuapp.com/api/author/Stefan_Zweig/likeCount=desc",
+          "https://kithub-books.herokuapp.com/api/author/Stefan_Zweig/sort/likeCount=desc",
         alert:
           "If the author name consists of more than one word, separate the words with _.",
         paramsDescription: [

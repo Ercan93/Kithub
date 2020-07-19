@@ -41,11 +41,6 @@
         <i>Example Query</i>
       </h3>
       <p class="code">{{endpoint.exampleQuery}}</p>
-      <!--
-      <h3 class="mt-6">
-        <i>Example Result</i>
-      </h3>
-      -->
     </div>
   </v-container>
 </template>
