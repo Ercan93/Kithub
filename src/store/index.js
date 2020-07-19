@@ -13,22 +13,26 @@ export default new Vuex.Store({
       {
         title: "bookName",
         description: "Get book data with book name.",
-        code: "http://localhost:3030/api/books/{{Book_Name}}",
-        exampleQuery: "http://localhost:3000/api/books/Otomatik_Portakal",
+        code: "https://kithub-books.herokuapp.com/api/books/{{Book_Name}}",
+        exampleQuery:
+          "https://kithub-books.herokuapp.com/api/books/Otomatik_Portakal",
         alert:
           "If the book title consists of more than one word, separate the words with _ .",
       },
       {
         title: "bookISBN",
         description: "Get book data with book ISBN number.",
-        code: "http://localhost:3030/api/books/ISBN/{{Book_ISBN_Number}}",
-        exampleQuery: "http://localhost:3000/api/books/ISBN/9786053606116",
+        code:
+          "https://kithub-books.herokuapp.com/api/books/ISBN/{{Book_ISBN_Number}}",
+        exampleQuery:
+          "https://kithub-books.herokuapp.com/api/books/ISBN/9786053606116",
       },
       {
         title: "categoryBook",
         description: "Get books data category name.",
-        code: "http://localhost:3030/api/categories/{{category_name}}",
-        exampleQuery: "http://localhost:3000/api/categories/Roman",
+        code:
+          "https://kithub-books.herokuapp.com/api/categories/{{category_name}}",
+        exampleQuery: "https://kithub-books.herokuapp.com/api/categories/Roman",
         alert:
           "If the category name consists of more than one word, separate the words with _.",
       },
@@ -36,8 +40,9 @@ export default new Vuex.Store({
         title: "categoriesBooks",
         description: "Get books data categories name.",
         code:
-          "http://localhost:3030/api/categories/{{category_name}}&{{category_name}}",
-        exampleQuery: "http://localhost:3000/api/categories/Roman&Fantastik",
+          "https://kithub-books.herokuapp.com/api/categories/{{category_name}}&{{category_name}}",
+        exampleQuery:
+          "https://kithub-books.herokuapp.com/api/categories/Roman&Fantastik",
         alert:
           "If the category name consists of more than one word, separate the words with _.",
         alert2:
@@ -47,9 +52,9 @@ export default new Vuex.Store({
         title: "SortCategoriesBooks",
         description: "GET sorted books by parameter.",
         code:
-          "http://localhost:3030/api/categories/{{categories_name}}/{{sort_param}}={{orderBy}}",
+          "https://kithub-books.herokuapp.com/api/categories/{{categories_name}}/{{sort_param}}={{orderBy}}",
         exampleQuery:
-          "http://localhost:3000/api/categories/Roman&Fantastik/readCount=asc",
+          "https://kithub-books.herokuapp.com/api/categories/Roman&Fantastik/readCount=asc",
         alert:
           "If the category name consists of more than one word, separate the words with _.",
         alert2:
@@ -65,8 +70,9 @@ export default new Vuex.Store({
       {
         title: "AuthorBooks",
         description: "Get author's book data with author name.",
-        code: "http://localhost:3030/api/author/{{Author_Name}}",
-        exampleQuery: "http://localhost:3000/api/author/Stefan_Zweig",
+        code: "https://kithub-books.herokuapp.com/api/author/{{Author_Name}}",
+        exampleQuery:
+          "https://kithub-books.herokuapp.com/api/author/Stefan_Zweig",
         alert:
           "If the author name consists of more than one word, separate the words with _ .",
       },
@@ -74,9 +80,9 @@ export default new Vuex.Store({
         title: "SortAuthorsBook",
         description: "GET sorted author's book by parameter.",
         code:
-          "http://localhost:3030/api/author/{{Author_Name}}/{{sort_param}}={{orderBy}}",
+          "https://kithub-books.herokuapp.com/api/author/{{Author_Name}}/{{sort_param}}={{orderBy}}",
         exampleQuery:
-          "http://localhost:3000/api/author/Stefan_Zweig/likeCount=desc",
+          "https://kithub-books.herokuapp.com/api/author/Stefan_Zweig/likeCount=desc",
         alert:
           "If the author name consists of more than one word, separate the words with _.",
         paramsDescription: [

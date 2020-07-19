@@ -31,7 +31,7 @@ export default {
   methods: {
     logOut() {
       localStorage.removeItem("kithub-api-user-email");
-      localStorage.removeItem("kithub-api-user-email");
+      localStorage.removeItem("kithub-api-user-token");
       this.$store.state.userInfo = { email: null, token: null };
       this.$router.push("/login");
     }
@@ -39,7 +39,7 @@ export default {
   created() {
     let localToken = localStorage.getItem("kithub-api-user-token");
     let localEmail = localStorage.getItem("kithub-api-user-email");
-    if (!localToken && !localEmail) {
+    if (!localToken) {
       this.$router.push("/");
     } else {
       this.$store.state.userInfo.email = localEmail;

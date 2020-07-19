@@ -111,10 +111,9 @@ export default {
     login() {
       axios
         .post(
-          `http://localhost:3000/authenticate/email=${this.email}&password=${this.password}`
+          `https://kithub-books.herokuapp.com/authenticate/email=${this.email}&password=${this.password}`
         )
         .then(response => {
-          console.log(response);
           if (response.data.status == true && response.data.token) {
             this.$store.state.userInfo.token = response.data.token;
             this.$store.state.userInfo.email = this.email;
@@ -130,10 +129,9 @@ export default {
     register() {
       axios
         .post(
-          `http://localhost:3000/register/username=${this.username}&email=${this.email}&password=${this.password}`
+          `https://kithub-books.herokuapp.com/register/username=${this.username}&email=${this.email}&password=${this.password}`
         )
         .then(response => {
-          console.log(response);
           if (response.data.password) {
             this.$store.dispatch("setUserInfo", {
               email: this.email,
