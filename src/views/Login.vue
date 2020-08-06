@@ -41,6 +41,7 @@
                     name="username"
                     prepend-icon="mdi-account"
                     type="text"
+                    :rules="usernameRules"
                     required
                     v-model="username"
                     v-show="registerPage"
@@ -60,6 +61,7 @@
                     name="password"
                     prepend-icon="mdi-lock"
                     type="password"
+                    :rules="passwordRules"
                     required
                     v-model="password"
                   ></v-text-field>
@@ -102,9 +104,17 @@ export default {
       password: "",
       username: "",
       registerPage: false,
+      usernameRules: [
+        (v) => !!v || "Username is required",
+        (v) => (v && v.length >= 5) || "Username must have 5+ characters",
+      ],
       emailRules: [
         (v) => !!v || "E-mail is required",
         (v) => /.+@.+/.test(v) || "E-mail must be valid",
+      ],
+      passwordRules: [
+        (v) => !!v || "Password is required",
+        (v) => (v && v.length >= 5) || "Password must have 5+ characters",
       ],
       valid: true,
       successRegister: false,
