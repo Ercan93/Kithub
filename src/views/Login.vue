@@ -106,7 +106,9 @@ export default {
       registerPage: false,
       usernameRules: [
         (v) => !!v || "Username is required",
-        (v) => (v && v.length >= 5) || "Username must have 5+ characters",
+        (v) =>
+          (v && v.length >= 5 && v.length <= 12) ||
+          "Username must have 5+ characters",
       ],
       emailRules: [
         (v) => !!v || "E-mail is required",
@@ -114,7 +116,7 @@ export default {
       ],
       passwordRules: [
         (v) => !!v || "Password is required",
-        (v) => (v && v.length >= 5) || "Password must have 5+ characters",
+        (v) => (v && v.length >= 8) || "Password must have 5+ characters",
       ],
       valid: true,
       successRegister: false,
