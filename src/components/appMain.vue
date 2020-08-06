@@ -6,6 +6,11 @@
       <v-alert dense class="mt-12" border="bottom" color="second" v-show="showTokenValue">
         <textarea disabled class="token-card">{{token}}</textarea>
       </v-alert>
+      <v-alert
+        dense
+        class="mt-12"
+        color="second"
+      >Submit your token information in the body with the token variable.</v-alert>
     </div>
     <endpoint-card></endpoint-card>
   </v-main>
@@ -17,17 +22,17 @@ export default {
   data() {
     return {
       showTokenValue: false,
-      token: null
+      token: null,
     };
   },
   methods: {
     showToken() {
       this.showTokenValue = !this.showTokenValue;
-    }
+    },
   },
   created() {
     this.token = this.$store.state.userInfo.token;
-  }
+  },
 };
 </script>
 

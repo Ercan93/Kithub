@@ -10,7 +10,12 @@ export default {
 
   data: () => ({
     //
-  })
+  }),
+  created() {
+    axios.get("https://kithub-books.herokuapp.com").then((response) => {
+      console.log("api server is awakened.");
+    });
+  },
 };
 </script>
 <style lang="sass">
