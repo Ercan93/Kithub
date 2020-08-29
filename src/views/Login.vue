@@ -8,14 +8,13 @@
         <v-row align="center" justify="center">
           <v-col cols="12" sm="8" md="4">
             <v-alert dense type="info">
-              Network Error hatası alırsanız,
-              Firefox Tarayıcısı ile Cors everywhere eklentisini kullanarak sisteme giriş yapmayı deneyin.
+              Network Error hatası alırsanız, CORS Unblock eklentisini kullanarak sisteme giriş yapmayı deneyin.
               <br />
               <a
-                href="https://addons.mozilla.org/tr/firefox/addon/cors-everywhere/"
+                href="https://chrome.google.com/webstore/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino/related?hl=tr"
                 style="color:white"
                 target="_blank"
-              >Cors Everywhere eklentisi</a>
+              >CORS Unblock eklentisi</a>
             </v-alert>
             <v-alert
               dense
