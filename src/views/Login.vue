@@ -133,7 +133,7 @@ export default {
     login() {
       axios
         .post(
-          `https://kithub-books.herokuapp.com/authenticate/email=${this.email}&password=${this.password}`
+          `https://kithub-books.herokuapp.com/authenticate/email=${this.email}&password=${this.password}/`
         )
         .then((response) => {
           if (response.data.status == true && response.data.token) {
@@ -151,7 +151,7 @@ export default {
     register() {
       axios
         .post(
-          `https://kithub-books.herokuapp.com/register/username=${this.username}&email=${this.email}&password=${this.password}`
+          `https://kithub-books.herokuapp.com/register/username=${this.username}&email=${this.email}&password=${this.password}/`
         )
         .then((response) => {
           if (response.data.password) {
