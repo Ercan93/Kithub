@@ -99,6 +99,9 @@ export default new Vuex.Store({
     userInfoGetters(state) {
       return state.userInfo;
     },
+    bookApiInfoGetters(state) {
+      return state.bookApiInfo;
+    },
   },
   mutations: {
     SET_USER_INFO(state, payload) {

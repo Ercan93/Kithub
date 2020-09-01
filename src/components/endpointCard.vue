@@ -45,22 +45,24 @@
   </v-container>
 </template>
 <script>
+import { mapGetters } from "vuex";
 export default {
   data() {
     return {
-      bookApiInfo: null
+      bookApiInfo: null,
     };
   },
+  computed: { ...mapGetters(["bookApiInfoGetters"]) },
   created() {
-    this.bookApiInfo = this.$store.state.bookApiInfo;
-  }
+    this.bookApiInfo = this.bookApiInfoGetters;
+  },
 };
 </script>
 <style lang="sass" scoped>
 .code
     font-family: 'Fira Code', monospace
     font-weight: 500
-    font-size: 20px
+    font-size: 15px
     padding: 20px 10px
     letter-spacing: 1px
     line-height: 20px
@@ -70,7 +72,7 @@ export default {
     background: -webkit-linear-gradient(to right, #480048, #480048)
     background: linear-gradient(to right, #480048, #480048)
     .result
-        line-height: 28px
+        line-height: 25px
 a
     text-decoration: none
     color: #F09819
