@@ -1,6 +1,6 @@
 <template>
   <v-main class="main">
-    <div class="pl-16 pt-12 pr-16">
+    <div class="pl-16 pt-12 pr-16" v-if="userToken">
       <v-btn @click="showToken()">{{showTokenValue ? "Hide my token" : "Show my token"}}</v-btn>
 
       <v-alert dense class="mt-12" border="bottom" color="second" v-show="showTokenValue">

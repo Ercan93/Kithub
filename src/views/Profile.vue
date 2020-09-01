@@ -2,10 +2,15 @@
   <v-app class="profile">
     <v-app-bar class="app-bar" app>
       <h1 class="brand-name">Kithub</h1>
-      <span class="ml-auto white--text">{{email}}</span>
-      <a @click="logOut()">
-        <v-icon class="ml-5" color="#F09819">mdi-exit-run</v-icon>
-      </a>
+      <div class="ml-auto" v-if="token">
+        <span class="ml-auto white--text">{{email}}</span>
+        <a @click="logOut()">
+          <v-icon class="ml-5" color="#F09819">mdi-exit-run</v-icon>
+        </a>
+      </div>
+      <div class="ml-auto" v-else>
+        <router-link class="white--text text-decoration-none" tag="a" to="/login">login</router-link>
+      </div>
     </v-app-bar>
     <!--
     <app-navigation app></app-navigation>
@@ -41,13 +46,9 @@ export default {
   created() {
     let localToken = localStorage.getItem("kithub-api-user-token");
     let localEmail = localStorage.getItem("kithub-api-user-email");
-    if (!localToken) {
-      this.$router.push("/");
-    } else {
-      this.setUserInfo({ email: localEmail, token: localToken });
-      this.email = localEmail;
-      this.token = localToken;
-    }
+    this.setUserInfo({ email: localEmail, token: localToken });
+    this.email = localEmail;
+    this.token = localToken;
   },
 };
 </script>

@@ -10,6 +10,9 @@
       <router-link to="/login" tag="button" class="router font-weight-bold">
         <h2>Login</h2>
       </router-link>
+      <router-link to="/profile" tag="button" class="router ml-7 font-weight-bold">
+        <h2>Docs</h2>
+      </router-link>
     </v-main>
   </div>
 </template>
@@ -17,7 +20,7 @@
 <script>
 // @ is an alias to /src
 export default {
-  name: "Home"
+  name: "Home",
 };
 </script>
 <style lang="sass" scoped>
