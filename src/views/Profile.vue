@@ -10,7 +10,7 @@
     <!--
     <app-navigation app></app-navigation>
     -->
-    <app-main app></app-main>
+    <app-main :userToken="token" app></app-main>
     <app-footer app></app-footer>
   </v-app>
 </template>
@@ -18,6 +18,7 @@
 import appNavigation from "@/components/appNavigation";
 import appFooter from "@/components/appFooter";
 import appMain from "@/components/appMain";
+import { mapActions } from "vuex";
 
 export default {
   name: "UserProfile",
@@ -25,16 +26,17 @@ export default {
   data() {
     return {
       email: null,
-      token: null
+      token: null,
     };
   },
   methods: {
+    ...mapActions(["setUserInfo"]),
     logOut() {
       localStorage.removeItem("kithub-api-user-email");
       localStorage.removeItem("kithub-api-user-token");
-      this.$store.state.userInfo = { email: null, token: null };
+      this.setUserInfo({ email: null, token: null });
       this.$router.push("/login");
-    }
+    },
   },
   created() {
     let localToken = localStorage.getItem("kithub-api-user-token");
@@ -42,12 +44,11 @@ export default {
     if (!localToken) {
       this.$router.push("/");
     } else {
-      this.$store.state.userInfo.email = localEmail;
-      this.$store.state.userInfo.token = localToken;
+      this.setUserInfo({ email: localEmail, token: localToken });
       this.email = localEmail;
       this.token = localToken;
     }
-  }
+  },
 };
 </script>
 <style lang="sass" scoped>

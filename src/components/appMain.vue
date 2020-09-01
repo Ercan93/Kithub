@@ -4,7 +4,7 @@
       <v-btn @click="showToken()">{{showTokenValue ? "Hide my token" : "Show my token"}}</v-btn>
 
       <v-alert dense class="mt-12" border="bottom" color="second" v-show="showTokenValue">
-        <textarea disabled class="token-card">{{token}}</textarea>
+        <textarea disabled class="token-card">{{userToken}}</textarea>
       </v-alert>
       <v-alert
         dense
@@ -19,6 +19,7 @@
 import endpointCard from "./endpointCard";
 export default {
   components: { endpointCard },
+  props: ["userToken"],
   data() {
     return {
       showTokenValue: false,
@@ -29,9 +30,6 @@ export default {
     showToken() {
       this.showTokenValue = !this.showTokenValue;
     },
-  },
-  created() {
-    this.token = this.$store.state.userInfo.token;
   },
 };
 </script>
